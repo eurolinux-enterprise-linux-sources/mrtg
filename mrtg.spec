@@ -6,7 +6,7 @@
 Summary:   Multi Router Traffic Grapher
 Name:      mrtg
 Version:   2.16.2
-Release:   5%{?dist}
+Release:   7%{?dist}
 URL:       http://oss.oetiker.ch/mrtg/
 Source0:   http://oss.oetiker.ch/mrtg/pub/mrtg-%{version}.tar.gz
 #Source1:   http://oss.oetiker.ch/mrtg/pub/mrtg-%{version}.tar.gz.md5.gpg
@@ -17,6 +17,9 @@ Source5:   mrtg-httpd.conf
 Source6:   filter-provides-mrtg.sh
 Patch0:    mrtg-2.15.0-lib64.patch
 Patch1:    mrtg-2.10.5-norpath.patch
+Patch2:    mrtg-2.16.4-Socket6-fix.patch
+Patch3:    mrtg-2.16.2-kMG.patch
+Patch4:    mrtg-2.16.2-cfgmaker-ifhighspeed.patch
 License:   GPLv2+
 Group:     Applications/Internet
 Requires:  vixie-cron
@@ -46,6 +49,9 @@ Library files for MRTG. Note that %{name}-libs is not helpful without ${name}.
 %setup -q
 %patch0 -p1 -b .lib64
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
 
 for i in doc/mrtg-forum.1 doc/mrtg-squid.1 CHANGES; do
     iconv -f iso-8859-1 -t utf-8 < "$i" > "${i}_"
@@ -122,6 +128,16 @@ rm -rf $RPM_BUILD_ROOT
 %exclude %{_libdir}/mrtg2/Pod
 
 %changelog
+* Wed Oct 03 2012 Vitezslav Crhonek <vcrhonek@redhat.com> - 2.16.2-7
+- Fix kMG option with more number of values causes segmentation fault
+  Resolves: #707188
+- Fix cfgmaker doesn't use ifHighSpeed on IBM FibreChannel switches
+  Resolves: #836197
+
+* Tue Sep 25 2012 Tomas Smetana <tsmetana@redhat.com> - 2.16.2-6
+- Fix errors when running on IPv6
+  Resolves: #706519
+
 * Tue Jun 29 2010 Vitezslav Crhonek <vcrhonek@redhat.com> - 2.16.2-5
 - Move library files into separate package
 
