@@ -6,7 +6,7 @@
 Summary:   Multi Router Traffic Grapher
 Name:      mrtg
 Version:   2.16.2
-Release:   7%{?dist}
+Release:   9%{?dist}
 URL:       http://oss.oetiker.ch/mrtg/
 Source0:   http://oss.oetiker.ch/mrtg/pub/mrtg-%{version}.tar.gz
 #Source1:   http://oss.oetiker.ch/mrtg/pub/mrtg-%{version}.tar.gz.md5.gpg
@@ -128,6 +128,14 @@ rm -rf $RPM_BUILD_ROOT
 %exclude %{_libdir}/mrtg2/Pod
 
 %changelog
+* Mon Mar 14 2016 Vitezslav Crhonek <vcrhonek@redhat.com> - 2.16.2-9
+- Fix errors when running on IPv6 (missed to fix the second import)
+  Resolves: #919667
+
+* Thu Nov 12 2015 Vitezslav Crhonek <vcrhonek@redhat.com> - 2.16.2-8
+- Fix errors when running on IPv6
+  Resolves: #919667
+
 * Wed Oct 03 2012 Vitezslav Crhonek <vcrhonek@redhat.com> - 2.16.2-7
 - Fix kMG option with more number of values causes segmentation fault
   Resolves: #707188
