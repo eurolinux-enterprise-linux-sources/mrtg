@@ -1,0 +1,17 @@
+***************
+*** 3819,3825 ****
+        'Jan'       => 'Sty',          'Feb'       => 'Lut',         'Mar'       => 'Mar',
+        'April'     => 'Kwietnia',     'May'       => 'Maja',        'June'      => 'Czerwca', 
+        'Apr'       => 'Kwi',          'May'       => 'Maj',         'Jun'       => 'Cze',
+-       'July'      => 'Lipica',       'August'    => 'Sierpnia',    'September' => 'Wrzesnia', 
+        'Jul'       => 'Lip',          'Aug'       => 'Sie',         'Sep'       => 'Wrz', 
+        'October'   => 'Pa¼dziernika', 'November'  => 'Listopada',   'December'  => 'Grudnia', 
+        'Oct'       => 'Pa¼',          'Nov'       => 'Lis',         'Dec'       => 'Gru' 
+--- 3819,3825 ----
+        'Jan'       => 'Sty',          'Feb'       => 'Lut',         'Mar'       => 'Mar',
+        'April'     => 'Kwietnia',     'May'       => 'Maja',        'June'      => 'Czerwca', 
+        'Apr'       => 'Kwi',          'May'       => 'Maj',         'Jun'       => 'Cze',
++       'July'      => 'Lipca',        'August'    => 'Sierpnia',    'September' => 'Wrze¶nia', 
+        'Jul'       => 'Lip',          'Aug'       => 'Sie',         'Sep'       => 'Wrz', 
+        'October'   => 'Pa¼dziernika', 'November'  => 'Listopada',   'December'  => 'Grudnia', 
+        'Oct'       => 'Pa¼',          'Nov'       => 'Lis',         'Dec'       => 'Gru' 
