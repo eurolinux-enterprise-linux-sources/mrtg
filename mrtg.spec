@@ -6,7 +6,7 @@
 Summary:   Multi Router Traffic Grapher
 Name:      mrtg
 Version:   2.17.4
-Release:   11%{?dist}
+Release:   8%{?dist}
 URL:       http://oss.oetiker.ch/mrtg/
 Source0:   http://oss.oetiker.ch/mrtg/pub/mrtg-%{version}.tar.gz
 Source1:   http://oss.oetiker.ch/mrtg/pub/mrtg-%{version}.tar.gz.md5
@@ -105,7 +105,6 @@ sed -i 's;@@lib@@;%{_lib};g' "$RPM_BUILD_ROOT"%{_mandir}/man1/*.1
 
 %post
 install -d -m 0755 -o root -g root /var/lock/mrtg
-restorecon /var/lock/mrtg
 %systemd_post mrtg.service
 
 %preun
@@ -139,16 +138,6 @@ fi
 %{_unitdir}/mrtg.timer
 
 %changelog
-* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 2.17.4-11
-- Mass rebuild 2014-01-24
-
-* Tue Jan 21 2014 Vitezslav Crhonek <vcrhonek@redhat.com> - 2.17.4-10
-- Fix wrong SELinux context of /var/lock/mrtg
-  Resolves: #1049247
-
-* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 2.17.4-9
-- Mass rebuild 2013-12-27
-
 * Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.17.4-8
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
 
